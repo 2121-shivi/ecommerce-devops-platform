@@ -1,6 +1,7 @@
 pipeline {
 agent any
 
+
 environment {
     DOCKER_IMAGE = "shivanisharma21/ecommerce-backend"
     IMAGE_TAG = "${BUILD_NUMBER}"
@@ -10,9 +11,7 @@ stages {
 
     stage('Checkout') {
         steps {
-            git branch: 'main',
-                credentialsId: 'github-creds',
-                url: 'https://github.com/2121-shivi/ecommerce-devops-platform.git'
+            checkout scm
         }
     }
 
@@ -61,4 +60,6 @@ post {
 
 
 }
-
+                   
+                             
+               
