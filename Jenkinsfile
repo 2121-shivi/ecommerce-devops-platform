@@ -41,11 +41,21 @@ stages {
     }
 
     stage('Push Image') {
-        steps {
-            sh '''
-            docker push $DOCKER_IMAGE:$IMAGE_TAG
-            '''
-        }
+    steps {
+        sh '''
+        docker push $DOCKER_IMAGE:$IMAGE_TAG
+        '''
+    }
+}
+
+stage('Deploy to Kubernetes') {
+    steps {
+        sh """
+        helm upgrade backend ./helm/backend-chart \
+        -n ecommerce \
+        --set image.repository=${DOCKER_IMAGE} \
+        --set image.tag=${IMAGE_TAG}
+        """
     }
 }
 
@@ -56,10 +66,6 @@ post {
     failure {
         echo 'Pipeline failed!'
     }
-}
-
-
-}
-                   
+}               
                              
                
