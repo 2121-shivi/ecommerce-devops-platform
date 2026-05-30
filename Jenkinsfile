@@ -1,71 +1,71 @@
 pipeline {
-agent any
+    agent any
 
-
-environment {
-    DOCKER_IMAGE = "shivanisharma21/ecommerce-backend"
-    IMAGE_TAG = "${BUILD_NUMBER}"
-}
-
-stages {
-
-    stage('Checkout') {
-        steps {
-            checkout scm
-        }
+    environment {
+        DOCKER_IMAGE = "shivanisharma21/ecommerce-backend"
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
-    stage('Build Docker Image') {
-        steps {
-            sh '''
-            cd backend
-            docker build -t $DOCKER_IMAGE:$IMAGE_TAG .
-            '''
-        }
-    }
+    stages {
 
-    stage('Docker Login') {
-        steps {
-            withCredentials([
-                usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )
-            ]) {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
                 sh '''
-                echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                cd backend
+                docker build -t $DOCKER_IMAGE:$IMAGE_TAG .
                 '''
             }
         }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                sh '''
+                docker push $DOCKER_IMAGE:$IMAGE_TAG
+                '''
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh """
+                helm upgrade backend ./helm/backend-chart \
+                -n ecommerce \
+                --set image.repository=${DOCKER_IMAGE} \
+                --set image.tag=${IMAGE_TAG}
+                """
+            }
+        }
+
+    }   
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
     }
 
-    stage('Push Image') {
-    steps {
-        sh '''
-        docker push $DOCKER_IMAGE:$IMAGE_TAG
-        '''
-    }
-}
-
-stage('Deploy to Kubernetes') {
-    steps {
-        sh """
-        helm upgrade backend ./helm/backend-chart \
-        -n ecommerce \
-        --set image.repository=${DOCKER_IMAGE} \
-        --set image.tag=${IMAGE_TAG}
-        """
-    }
-}
-
-post {
-    success {
-        echo 'Pipeline completed successfully!'
-    }
-    failure {
-        echo 'Pipeline failed!'
-    }
-}               
-                             
-               
+}   
