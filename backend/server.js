@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
         application: 'E-Commerce Platform',
         status: 'Running',
         database: 'Connected',
-        version: '2.0'
+        version: '2.1'
     });
 });
 
