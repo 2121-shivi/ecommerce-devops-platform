@@ -1,0 +1,161 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import {
+  FaDocker,
+  FaJenkins,
+  FaGithub,
+  FaDatabase,
+  FaServer
+} from "react-icons/fa";
+
+import {
+  SiKubernetes,
+  SiGrafana,
+  SiPrometheus
+} from "react-icons/si";
+
+function App() {
+  return (
+    <div className="app">
+
+      <section className="hero">
+        <h1>E-Commerce DevOps Platform</h1>
+        <p>
+          Production Ready CI/CD • Kubernetes • Monitoring • Observability
+        </p>
+
+        <button className="btn">
+          View Project
+        </button>
+      </section>
+
+      <section className="stats">
+
+        <div className="stat-card">
+          <h2>4</h2>
+          <span>Pods Running</span>
+        </div>
+
+        <div className="stat-card">
+          <h2>3</h2>
+          <span>K8s Nodes</span>
+        </div>
+
+        <div className="stat-card">
+          <h2>14</h2>
+          <span>Services</span>
+        </div>
+
+        <div className="stat-card">
+          <h2>99.9%</h2>
+          <span>Availability</span>
+        </div>
+
+      </section>
+
+      <section className="tech-stack">
+
+        <h2>Technology Stack</h2>
+
+        <div className="tech-grid">
+
+          <div className="tech-card">
+            <SiKubernetes />
+            <p>Kubernetes</p>
+          </div>
+
+          <div className="tech-card">
+            <FaDocker />
+            <p>Docker</p>
+          </div>
+
+          <div className="tech-card">
+            <FaJenkins />
+            <p>Jenkins</p>
+          </div>
+
+          <div className="tech-card">
+            <SiPrometheus />
+            <p>Prometheus</p>
+          </div>
+
+          <div className="tech-card">
+            <SiGrafana />
+            <p>Grafana</p>
+          </div>
+
+          <div className="tech-card">
+            <FaDatabase />
+            <p>MySQL</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section className="architecture">
+
+        <h2>DevOps Pipeline</h2>
+
+        <div className="pipeline">
+          <FaGithub />
+          ➜ Jenkins
+          ➜ Docker
+          ➜ Kubernetes
+          ➜ MySQL
+          ➜ Prometheus
+          ➜ Grafana
+        </div>
+
+      </section>
+
+      <section className="backend-status">
+
+        <h2>Backend Status</h2>
+
+        <div className="status-box">
+
+          <FaServer size={40} />
+
+          <div>
+            <h3>Backend Running</h3>
+            <p>Version 1.0</p>
+            <p>Database Connected</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section className="screenshots">
+
+        <h2>Monitoring Screenshots</h2>
+
+        <div className="image-grid">
+
+          <div className="image-box">
+            Grafana Dashboard Screenshot
+          </div>
+
+          <div className="image-box">
+            Jenkins Pipeline Screenshot
+          </div>
+
+          <div className="image-box">
+            Kubernetes Screenshot
+          </div>
+
+        </div>
+
+      </section>
+
+      <footer>
+        Built with ❤️ using Kubernetes, Docker, Jenkins and Grafana
+      </footer>
+
+    </div>
+  );
+}
+
+export default App;
