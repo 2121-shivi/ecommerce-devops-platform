@@ -2,40 +2,45 @@
 
 A production-ready DevOps project demonstrating the complete software delivery lifecycle using modern cloud-native technologies.
 
-The platform integrates **GitHub, Jenkins, Docker, Kubernetes, Prometheus, and Grafana** to automate application deployment, monitoring, and observability. It showcases CI/CD automation, container orchestration, infrastructure monitoring, and alert management in a real-world DevOps workflow.
+This project showcases how an e-commerce application can be containerized, deployed, monitored, and automatically managed through a fully automated CI/CD pipeline. The platform integrates GitHub, Jenkins, Docker, Kubernetes, Prometheus, and Grafana to provide continuous integration, continuous deployment, monitoring, observability, and infrastructure automation.
 
 ---
 
 ## Overview
 
-This project implements an end-to-end DevOps pipeline for an e-commerce application.
+The E-Commerce DevOps Platform implements an end-to-end DevOps workflow.
 
-The workflow begins with source code management in GitHub, followed by automated builds and deployments through Jenkins. Application components are containerized using Docker and deployed to a Kubernetes cluster. Prometheus collects metrics from the infrastructure and applications, while Grafana provides dashboards and alerting capabilities for monitoring system health.
+Code changes pushed to GitHub automatically trigger Jenkins pipelines that build Docker images, push them to a registry, and deploy updated application versions to a Kubernetes cluster. Prometheus continuously monitors the infrastructure while Grafana provides visualization and alerting capabilities.
+
+The project demonstrates real-world DevOps practices including automation, containerization, orchestration, monitoring, and infrastructure observability.
 
 ---
 
 ## Architecture
 
 ```text
-GitHub
-   │
-   ▼
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
 Jenkins CI/CD Pipeline
-   │
-   ▼
+    │
+    ▼
 Docker Build & Push
-   │
-   ▼
+    │
+    ▼
 Kubernetes Cluster
-   │
-   ├── Frontend (React)
-   ├── Backend (Flask)
-   └── MySQL Database
-   │
-   ▼
+    │
+    ├── Frontend (React)
+    ├── Backend (Node.js + Express)
+    └── MySQL Database
+    │
+    ▼
 Prometheus Monitoring
-   │
-   ▼
+    │
+    ▼
 Grafana Dashboards & Alerts
 ```
 
@@ -43,49 +48,34 @@ Grafana Dashboards & Alerts
 
 ## Tech Stack
 
-### Frontend
-
-* React.js
-* Vite
-* Axios
-
-### Backend
-
-* Flask
-* Python
-
-### Database
-
-* MySQL
-
-### DevOps & Infrastructure
-
-* Docker
-* Kubernetes
-* Helm
-* Jenkins
-* GitHub Actions/Webhooks
-
-### Monitoring & Observability
-
-* Prometheus
-* Grafana
+| Layer | Technology |
+|---------|------------|
+| Frontend | React.js, Vite, Axios |
+| Backend | Node.js, Express.js |
+| Database | MySQL |
+| CI/CD | Jenkins |
+| Containerization | Docker |
+| Orchestration | Kubernetes, Helm |
+| Monitoring | Prometheus |
+| Visualization | Grafana |
+| Version Control | GitHub |
 
 ---
 
-##  Features
+## Features
 
-* Automated CI/CD Pipeline
-* Dockerized Application Services
-* Kubernetes Deployment
-* React-Based Dashboard
-* Backend API Integration
-* MySQL Database Connectivity
-* Prometheus Monitoring
-* Grafana Dashboards
-* Alert Management
-* GitHub Webhook Integration
-* Infrastructure Observability
+- Automated CI/CD Pipeline
+- Dockerized Application Services
+- Kubernetes Deployment
+- React-Based Dashboard
+- Backend API Integration
+- MySQL Database Connectivity
+- Prometheus Monitoring
+- Grafana Dashboards
+- Alert Management
+- GitHub Webhook Integration
+- Infrastructure Observability
+- Production-Style DevOps Workflow
 
 ---
 
@@ -102,57 +92,88 @@ The Jenkins pipeline automates the complete deployment workflow:
 
 ### Pipeline Stages
 
-* Checkout SCM
-* Checkout
-* Build Docker Image
-* Docker Login
-* Push Image
-* Deploy to Kubernetes
-* Post Actions
+- Checkout SCM
+- Build Docker Image
+- Docker Login
+- Push Docker Image
+- Deploy to Kubernetes
+- Post Actions
 
 ---
 
 ## Application Access
 
-| Service            | URL                     |
-| ------------------ | ----------------------- |
+| Service | URL |
+|----------|------|
 | Frontend Dashboard | http://49.50.92.84:5173 |
-| Backend API        | http://49.50.92.84:5000 |
-| Jenkins            | http://49.50.92.84:8080 |
-| Prometheus         | http://49.50.92.84:9090 |
-| Grafana            | http://49.50.92.84:3000 |
+| Backend API | http://49.50.92.84:5000 |
+| Jenkins | http://49.50.92.84:8080 |
+| Prometheus | http://49.50.92.84:9090 |
+| Grafana | http://49.50.92.84:3000 |
 
 ---
 
-## 📊 Monitoring & Alerting
+## Kubernetes Resources
 
-The platform includes comprehensive monitoring and observability using Prometheus and Grafana.
+The application is deployed using Kubernetes Deployments and Services.
 
-### Dashboards
+### Deployments
 
-* Kubernetes Cluster Dashboard
-* Infrastructure Monitoring Dashboard
-* Resource Utilization Dashboard
+- Frontend Deployment
+- Backend Deployment
+- MySQL Deployment
 
-### Alerts
+### Services
 
-* Backend Down Alert
-* MySQL Down Alert
-* High CPU Usage Alert
+- Frontend NodePort Service
+- Backend ClusterIP Service
+- MySQL ClusterIP Service
+
+---
+
+## Monitoring & Observability
+
+Prometheus continuously collects metrics from:
+
+- Kubernetes Nodes
+- Kubernetes Pods
+- Backend Services
+- Containers
+- Infrastructure Resources
+
+Grafana visualizes these metrics through dashboards that provide insights into:
+
+- Cluster Health
+- Node Metrics
+- Pod Status
+- Resource Utilization
+- Application Availability
+
+---
+
+## Alerting
+
+The monitoring stack includes automated alerts for critical events:
+
+- Backend Down Alert
+- MySQL Down Alert
+- High CPU Usage Alert
+
+These alerts help identify failures and performance issues before they impact application availability.
 
 ---
 
 ## Project Screenshots
 
-The frontend dashboard includes screenshots of:
+The project dashboard includes screenshots demonstrating:
 
-* Grafana Monitoring Dashboard
-* Prometheus Targets
-* Jenkins CI/CD Pipeline
-* Kubernetes Cluster Status
-* Backend Down Alert
-* MySQL Down Alert
-* High CPU Alert
+- Grafana Monitoring Dashboard
+- Prometheus Targets
+- Jenkins CI/CD Pipeline
+- Kubernetes Cluster Status
+- Backend Down Alert
+- MySQL Down Alert
+- High CPU Alert
 
 ---
 
@@ -162,32 +183,35 @@ The frontend dashboard includes screenshots of:
 ecommerce-devops-platform/
 │
 ├── backend/
+│
 ├── frontend/
-│   ├── public/
 │   ├── src/
+│   ├── public/
+│   │   └── screenshots/
 │   └── Dockerfile
 │
 ├── helm/
+│
 ├── Jenkinsfile
 ├── docker-compose.yml
-├── README.md
-└── LICENSE
+├── frontend-deployment.yaml
+└── README.md
 ```
 
 ---
 
 ## Learning Outcomes
 
-This project demonstrates practical experience with:
+This project demonstrates practical implementation of:
 
-* Continuous Integration
-* Continuous Deployment
-* Containerization
-* Kubernetes Orchestration
-* Infrastructure Monitoring
-* Alert Management
-* DevOps Automation
-* Cloud-Native Deployment
+- Continuous Integration (CI)
+- Continuous Deployment (CD)
+- Docker Containerization
+- Kubernetes Orchestration
+- Infrastructure Monitoring
+- Alert Management
+- DevOps Automation
+- Cloud-Native Application Deployment
 
 ---
 
