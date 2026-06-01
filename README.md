@@ -101,15 +101,28 @@ The Jenkins pipeline automates the complete deployment workflow:
 
 ---
 
-## Application Access
+## Application Components
 
-| Service | URL |
-|----------|------|
-| Frontend Dashboard | http://49.50.92.84:5173 |
-| Backend API | http://49.50.92.84:5000 |
-| Jenkins | http://49.50.92.84:8080 |
-| Prometheus | http://49.50.92.84:9090 |
-| Grafana | http://49.50.92.84:3000 |
+### Frontend Dashboard
+The frontend is developed using React.js and Vite, providing a modern and responsive user interface for interacting with the e-commerce platform. It communicates with backend APIs to retrieve application data and display system information.
+
+### Backend API
+The backend is built using Node.js and Express.js. It handles business logic, API requests, database communication, and application services required by the frontend layer.
+
+### Jenkins CI/CD Server
+Jenkins automates the software delivery process by continuously integrating code changes, building Docker images, executing deployment pipelines, and updating Kubernetes workloads automatically.
+
+### Prometheus Monitoring
+Prometheus continuously collects metrics from Kubernetes nodes, pods, containers, and application services. It enables real-time monitoring and acts as the foundation for alert generation.
+
+### Grafana Visualization
+Grafana provides interactive dashboards and visual representations of infrastructure and application metrics collected by Prometheus. It enables performance analysis, observability, and operational monitoring.
+
+### Kubernetes Infrastructure
+Kubernetes orchestrates containerized workloads by managing deployments, scaling, service discovery, and self-healing capabilities across the cluster.
+
+### MySQL Database
+MySQL serves as the persistent data storage layer of the application, maintaining structured data and supporting backend operations.
 
 ---
 
