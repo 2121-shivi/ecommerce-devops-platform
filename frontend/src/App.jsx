@@ -291,7 +291,7 @@ function App() {
       </section>
 
       <footer>
-       Built with ❤️ using Kubernetes, Docker, Jenkins and Grafana
+       Powered by Kubernetes & Docker.
       </footer>
 
      </div>
