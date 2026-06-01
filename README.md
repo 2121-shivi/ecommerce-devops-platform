@@ -4,6 +4,7 @@ A production-ready DevOps project demonstrating the complete software delivery l
 
 The platform integrates **GitHub, Jenkins, Docker, Kubernetes, Prometheus, and Grafana** to automate application deployment, monitoring, and observability. It showcases CI/CD automation, container orchestration, infrastructure monitoring, and alert management in a real-world DevOps workflow.
 
+---
 
 ## Overview
 
@@ -11,6 +12,7 @@ This project implements an end-to-end DevOps pipeline for an e-commerce applicat
 
 The workflow begins with source code management in GitHub, followed by automated builds and deployments through Jenkins. Application components are containerized using Docker and deployed to a Kubernetes cluster. Prometheus collects metrics from the infrastructure and applications, while Grafana provides dashboards and alerting capabilities for monitoring system health.
 
+---
 
 ## Architecture
 
@@ -35,6 +37,9 @@ Prometheus Monitoring
    │
    ▼
 Grafana Dashboards & Alerts
+```
+
+---
 
 ## Tech Stack
 
@@ -66,7 +71,9 @@ Grafana Dashboards & Alerts
 * Prometheus
 * Grafana
 
-## Features
+---
+
+##  Features
 
 * Automated CI/CD Pipeline
 * Dockerized Application Services
@@ -79,6 +86,8 @@ Grafana Dashboards & Alerts
 * Alert Management
 * GitHub Webhook Integration
 * Infrastructure Observability
+
+---
 
 ## CI/CD Pipeline
 
@@ -101,6 +110,8 @@ The Jenkins pipeline automates the complete deployment workflow:
 * Deploy to Kubernetes
 * Post Actions
 
+---
+
 ## Application Access
 
 | Service            | URL                     |
@@ -111,8 +122,9 @@ The Jenkins pipeline automates the complete deployment workflow:
 | Prometheus         | http://49.50.92.84:9090 |
 | Grafana            | http://49.50.92.84:3000 |
 
+---
 
-## Monitoring & Alerting
+## 📊 Monitoring & Alerting
 
 The platform includes comprehensive monitoring and observability using Prometheus and Grafana.
 
@@ -128,6 +140,8 @@ The platform includes comprehensive monitoring and observability using Prometheu
 * MySQL Down Alert
 * High CPU Usage Alert
 
+---
+
 ## Project Screenshots
 
 The frontend dashboard includes screenshots of:
@@ -140,9 +154,11 @@ The frontend dashboard includes screenshots of:
 * MySQL Down Alert
 * High CPU Alert
 
+---
 
 ## Repository Structure
 
+```text
 ecommerce-devops-platform/
 │
 ├── backend/
@@ -156,6 +172,9 @@ ecommerce-devops-platform/
 ├── docker-compose.yml
 ├── README.md
 └── LICENSE
+```
+
+---
 
 ## Learning Outcomes
 
@@ -170,6 +189,8 @@ This project demonstrates practical experience with:
 * DevOps Automation
 * Cloud-Native Deployment
 
+---
+
 ## Author
 
 **Shivani Sharma**
@@ -178,6 +199,7 @@ GitHub: https://github.com/2121-shivi
 
 Repository: https://github.com/2121-shivi/ecommerce-devops-platform
 
+---
 
 ## License
 
